@@ -52,25 +52,6 @@
             <version>0.11.5</version>
         </dependency>
 
-        <!-- ModelMapper -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mail</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sendgrid</groupId>
-            <artifactId>sendgrid-java</artifactId>
-            <version>4.9.3</version>
-        </dependency>
-
-
-        <!-- Spring Data JPA -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
         <!-- Model Mapper -->
         <dependency>
             <groupId>org.modelmapper</groupId>
@@ -137,6 +118,12 @@
             <version>10.5.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.resend</groupId>
+            <artifactId>resend-java</artifactId>
+            <version>4.28.0</version>
+        </dependency>
+
         <!-- HTTP Client -->
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
@@ -165,12 +152,7 @@
             <artifactId>google-api-services-calendar</artifactId>
             <version>v3-rev20250115-2.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>24.1.0</version>
-            <scope>compile</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>

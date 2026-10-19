@@ -1,44 +1,53 @@
 package SP25SE026_GSP48_WDCRBP_api.service.impl;
 
-import com.sendgrid.*;
-import com.sendgrid.helpers.mail.Mail;
-import com.sendgrid.helpers.mail.objects.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.resend.Resend;
+import com.resend.core.exception.ResendException;
+import com.resend.services.emails.model.CreateEmailOptions;
+import com.resend.services.emails.model.CreateEmailResponse;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 
 @Service
 public class MailServiceImpl {
 
-    @Autowired
-    private ConfigurationServiceImpl configurationServiceImpl;
+    @Value("${resend.api-key}")
+    private String resendApiKey;
 
-    @Value("${sendgrid.from-email}")
+    @Value("${resend.from-email}")
     private String fromEmail;
 
-    public void sendEmail(String to, String subject, String messageType, String linkOrPassword) {
-        String htmlContent = generateEmailContent(messageType, linkOrPassword);
+    public void sendEmail(
+            String to,
+            String subject,
+            String messageType,
+            String linkOrPassword
+    ) {
+        String htmlContent =
+                generateEmailContent(messageType, linkOrPassword);
 
-        Email from = new Email(fromEmail);
-        Email toEmail = new Email(to);
-        Content content = new Content("text/html", htmlContent);
-        Mail mail = new Mail(from, subject, toEmail, content);
-        System.out.printf(mail.toString());
+        Resend resend = new Resend(resendApiKey);
 
-        SendGrid sg = new SendGrid(configurationServiceImpl.getValue("sendgrid_api_key"));
-        Request request = new Request();
+        CreateEmailOptions params = CreateEmailOptions.builder()
+                .from(fromEmail)
+                .to(to)
+                .subject(subject)
+                .html(htmlContent)
+                .build();
 
         try {
-            request.setMethod(Method.POST);
-            request.setEndpoint("mail/send");
-            request.setBody(mail.build());
-            Response response = sg.api(request);
+            CreateEmailResponse response =
+                    resend.emails().send(params);
 
-            System.out.println("Email sent: " + response.getStatusCode());
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to send email: " + e.getMessage(), e);
+            System.out.println(
+                    "Email accepted by Resend. ID: " + response.getId()
+            );
+
+        } catch (ResendException e) {
+            throw new RuntimeException(
+                    "Failed to send email via Resend: " + e.getMessage(),
+                    e
+            );
         }
     }
 
