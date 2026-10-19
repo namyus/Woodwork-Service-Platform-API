@@ -1,0 +1,15 @@
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+application-local.properties
+**/application-local.properties
+credentials.json
+**/credentials.json
+*service-account*.json
+*.pem
+*.key
+target/
+.idea/
+*.iml
