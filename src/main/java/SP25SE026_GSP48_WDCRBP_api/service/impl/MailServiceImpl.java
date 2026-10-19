@@ -104,7 +104,7 @@ public class MailServiceImpl {
                 + "background-repeat: no-repeat; background-size: 800px 452px; background-position: top center; color: #434343;'>"
 
                 + "<header><table style='width: 100%;'><tr><td>"
-                + "<img src='https://i.imgur.com/Ke4MgOK.png' height='30px' alt='Logo'/>"
+                + "<img src='https://woodwork-service-platform-web-app.vercel.app/Ke4MgOK.png' height='30px' alt='Logo'/>"
                 + "</td><td style='text-align: right;'><span style='font-size: 16px; line-height: 30px; color: #ffffff;'>"
                 + java.time.LocalDate.now()
                 + "</span></td></tr></table></header>"
