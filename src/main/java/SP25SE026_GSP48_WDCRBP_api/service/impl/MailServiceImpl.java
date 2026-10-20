@@ -138,7 +138,7 @@ public class MailServiceImpl {
                 + coreContent
                 + "</div></div>"
                 + "<p style='max-width: 400px; margin: 90px auto 0; text-align: center; font-weight: 500; color: #8c8c8c;'>"
-                + "Cần trợ giúp? Gửi email đến <a href='mailto:namndpse171442@fpt.edu.vn' style='color: #499fb6;'>namndpse171442@fpt.edu.vn</a>"
+                + "Cần trợ giúp? Gửi email đến <a href='mailto:namp49229@gmail.com' style='color: #499fb6;'>namp49229@gmail.com</a>"
                 + "</p></main>"
                 + "<footer style='max-width: 490px; margin: 20px auto 0; text-align: center; border-top: 1px solid #e6ebf1;'>"
                 + "<p style='margin-top: 40px; font-size: 16px; font-weight: 600;'>Nền tảng đồ gỗ</p>"
